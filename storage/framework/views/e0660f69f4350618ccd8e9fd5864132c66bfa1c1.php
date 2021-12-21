@@ -1,30 +1,31 @@
-@extends('layouts.admin.master')
 
-@section('title')User
-{{ $title }}
-@endsection
 
-@push('css')
-@endpush
+<?php $__env->startSection('title'); ?>User
+<?php echo e($title); ?>
 
-@section('content')
-@component('components.breadcrumb')
-@slot('breadcrumb_title')
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('css'); ?>
+<?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php $__env->startComponent('components.breadcrumb'); ?>
+<?php $__env->slot('breadcrumb_title'); ?>
 <h3>Create Biodata</h3>
-@endslot
+<?php $__env->endSlot(); ?>
 <li class="breadcrumb-item">Tables</li>
 <li class="breadcrumb-item">Bootstrap Tables</li>
 <li class="breadcrumb-item active">Basic Tables</li>
-@endcomponent
+<?php echo $__env->renderComponent(); ?>
 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="card">
 				<div class="card-body">
-					<form class="needs-validation" novalidate="" method="POST" action="{{route('biodata.store')}}">
-						@csrf
-						<input type="hidden" name="user_id" value="{{$id}}">
+					<form class="needs-validation" novalidate="" method="POST" action="<?php echo e(route('biodata.store')); ?>">
+						<?php echo csrf_field(); ?>
+						<input type="hidden" name="user_id" value="<?php echo e($id); ?>">
 						<div class="row g-3">
 							<div class="col-md-6">
 								<label class="form-label" for="validationCustom01">Street Adress</label>
@@ -40,8 +41,8 @@
 						<br>
 						<div class="row g-3">
 							<div class="col-md-6">
-								<label class="form-label" for="validationCustom01">District</label>
-								<input class="form-control" id="validationCustom01" type="text" name="district" value="" required="" />
+								<label class="form-label" for="validationCustom01">Street Adress</label>
+								<input class="form-control" id="validationCustom01" type="text" name="name" value="Mark" required="" />
 								<div class="valid-feedback">Looks good!</div>
 							</div>
 							<div class="col-md-6">
@@ -141,9 +142,10 @@
 </div>
 
 
-@push('scripts')
-<script src="{{asset('assets/js/bootstrap/popper.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}"></script>
-@endpush
+<?php $__env->startPush('scripts'); ?>
+<script src="<?php echo e(asset('assets/js/bootstrap/popper.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/bootstrap/bootstrap.min.js')); ?>"></script>
+<?php $__env->stopPush(); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_7.3.0\htdocs\sid\resources\views/biodata/create.blade.php ENDPATH**/ ?>
